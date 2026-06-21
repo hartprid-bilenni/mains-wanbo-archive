@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>万博体育 · 信息整理页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f9fc;
+            color: #1d2b3a;
+            line-height: 1.6;
+            padding: 0 1.2rem 2.8rem;
+        }
+
+        .wrapper {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* ----- hero ----- */
+        .hero {
+            background: linear-gradient(145deg, #e1f0f7 0%, #cbe5f0 100%);
+            border-radius: 2.4rem 2.4rem 3.2rem 3.2rem;
+            padding: 3rem 2rem 2.8rem;
+            margin: 1.6rem 0 2.4rem;
+            box-shadow: 0 6px 20px rgba(0, 80, 90, 0.08);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #043b4a;
+        }
+
+        .hero h1 span {
+            background: #0b6f7c;
+            color: white;
+            padding: 0.1rem 0.6rem;
+            border-radius: 40px;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-left: 0.4rem;
+            display: inline-block;
+        }
+
+        .hero p {
+            max-width: 640px;
+            margin: 1.2rem auto 0;
+            color: #1f4f5e;
+            font-size: 1.1rem;
+        }
+
+        /* ----- grid cards (优势 / 说明区) ----- */
+        .section-label {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #0d5d6b;
+            margin: 2.4rem 0 0.8rem;
+            padding-left: 0.2rem;
+            border-left: 6px solid #2b9aa8;
+            padding-left: 0.8rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+        }
+
+        @media (min-width: 560px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 860px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.6rem;
+            padding: 1.8rem 1.4rem;
+            box-shadow: 0 4px 12px rgba(10, 85, 95, 0.06);
+            transition: 0.2s ease;
+            border: 1px solid #d8eaf0;
+        }
+
+        .card:hover {
+            border-color: #7ac1ce;
+            box-shadow: 0 6px 18px rgba(8, 100, 110, 0.10);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #0c5665;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: #2b4352;
+            font-size: 0.98rem;
+        }
+
+        .card .badge {
+            background: #daf0f5;
+            color: #085a68;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ----- 说明区 / 延伸阅读块 ----- */
+        .reading-block {
+            background: #e9f3f8;
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            margin: 2rem 0 1.8rem;
+        }
+
+        .reading-block h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #003d49;
+            margin-bottom: 0.8rem;
+        }
+
+        .reading-block p {
+            margin-bottom: 1rem;
+            color: #1b4350;
+        }
+
+        .reading-block .faq-item {
+            background: white;
+            border-radius: 1.2rem;
+            padding: 1rem 1.2rem;
+            margin: 0.8rem 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #004b59;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item span {
+            color: #1a5363;
+            font-size: 0.96rem;
+        }
+
+        .link-sentence {
+            background: white;
+            border-radius: 2rem;
+            padding: 1.8rem 2rem;
+            margin: 2.2rem 0 1.4rem;
+            border: 1px solid #cde2ea;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .link-sentence a {
+            color: #0b6b7a;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid #78bcc9;
+            transition: 0.15s;
+        }
+
+        .link-sentence a:hover {
+            background: #dcf0f5;
+            border-bottom-color: #0b6b7a;
+        }
+
+        /* ----- 底部链接区 ----- */
+        .footer-links {
+            margin-top: 2.8rem;
+            padding: 1.2rem 0 0.8rem;
+            border-top: 2px solid #cde0e8;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #396775;
+        }
+
+        .footer-links a {
+            color: #0b6b7a;
+            text-decoration: none;
+            margin: 0 0.6rem;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-note {
+            margin-top: 0.8rem;
+            color: #4d737f;
+            font-size: 0.85rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #c6dce6;
+            margin: 1.8rem 0 0.4rem;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <!-- hero 区 -->
+    <section class="hero">
+        <h1>万博体育<span>信息页</span></h1>
+        <p>一份供日常对照与延伸阅读的简要参考 —— 围绕平台特点、使用场景与常见疑问整理而成。</p>
+    </section>
+
+    <!-- 优势区（网格卡片） -->
+    <div class="section-label">▍ 特点 · 对照</div>
+    <div class="card-grid">
+        <div class="card">
+            <div class="badge">场景</div>
+            <h3>日常查询习惯</h3>
+            <p>从赛事动态到界面操作，持续积累的查询习惯能帮助快速定位感兴趣的内容，减少反复搜索的时间。</p>
+        </div>
+        <div class="card">
+            <div class="badge">结构</div>
+            <h3>栏目与分类</h3>
+            <p>不同板块按运动项目、赛事等级、资讯类型分别组织，方便按个人兴趣依次浏览。</p>
+        </div>
+        <div class="card">
+            <div class="badge">可及性</div>
+            <h3>多端适配</h3>
+            <p>移动端与桌面端的布局各自优化，常用功能在较小屏幕上也保持易点按、易阅读。</p>
+        </div>
+        <div class="card">
+            <div class="badge">资讯</div>
+            <h3>赛事信息汇总</h3>
+            <p>整合比分、赛程、队伍近况等基础数据，可作为赛前快速参考，减少四处翻找的麻烦。</p>
+        </div>
+        <div class="card">
+            <div class="badge">延伸</div>
+            <h3>话题讨论区</h3>
+            <p>社区性质的讨论板块，供用户交流观点，但请自行判断信息准确度，理性参考。</p>
+        </div>
+        <div class="card">
+            <div class="badge">提醒</div>
+            <h3>合理使用</h3>
+            <p>体育资讯与数据仅作为参考，请根据个人实际情况安排时间，保持适度。</p>
+        </div>
+    </div>
+
+    <!-- 说明区 + FAQ摘要 (延伸阅读角度) -->
+    <div class="reading-block">
+        <h2>📖 说明 · 延伸阅读</h2>
+        <p>以下摘录一些用户常遇到的问题，以及从日常使用中总结的几点补充说明。</p>
+        <div class="faq-item">
+            <strong>Q：如何快速查找某一场比赛的赛程？</strong>
+            <span>在首页或赛事列表中使用筛选功能，按联赛、日期或队伍名称过滤，通常能直接定位。也可以收藏常用联赛页面。</span>
+        </div>
+        <div class="faq-item">
+            <strong>Q：资讯更新频率如何？</strong>
+            <span>主要赛事期间信息更新较快，常规时段保持每日更新。历史数据、战绩部分相对固定，适合做回顾对照。</span>
+        </div>
+        <div class="faq-item">
+            <strong>Q：移动端浏览有何注意事项？</strong>
+            <span>建议保持浏览器为最新版本，部分交互在横屏模式下显示更完整。若页面加载异常可尝试刷新或检查网络。</span>
+        </div>
+        <p style="margin-top: 0.8rem;">—— 以上内容根据常见反馈整理，具体情况可能因版本更新有所调整。</p>
+    </div>
+
+    <!-- 嵌入链接的自然句子（必须包含「万博体育」且文本完全一致） -->
+    <div class="link-sentence">
+        若需查看完整的资讯与赛事数据，可前往 <a href="https://mains-wanbo.com">万博体育</a> 做进一步对照。
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="footer-links">
+        <a href="https://mains-wanbo.com">万博体育</a> ·
+        <a href="#">使用参考</a> ·
+        <a href="#">常见问题</a> ·
+        <span>仅供参考，不构成建议</span>
+        <div class="footer-note">
+            页面内容仅为信息整理，不涉及任何引导或承诺。请理性使用。
+        </div>
+    </div>
+
+    <hr>
+    <p style="font-size: 0.8rem; color: #60828f; text-align: center; margin-top: 0.2rem;">
+        整理于日常 · 内容仅供对照参考
+    </p>
+</div>
+</body>
+</html>
